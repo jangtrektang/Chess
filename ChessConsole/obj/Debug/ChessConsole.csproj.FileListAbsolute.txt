@@ -1,0 +1,8 @@
+E:\projects\Chess\ChessConsole\bin\Debug\ChessConsole.exe.config
+E:\projects\Chess\ChessConsole\bin\Debug\ChessConsole.exe
+E:\projects\Chess\ChessConsole\bin\Debug\ChessConsole.pdb
+E:\projects\Chess\ChessConsole\bin\Debug\Chess.Core.dll
+E:\projects\Chess\ChessConsole\bin\Debug\Chess.Core.pdb
+E:\projects\Chess\ChessConsole\obj\Debug\ChessConsole.csprojResolveAssemblyReference.cache
+E:\projects\Chess\ChessConsole\obj\Debug\ChessConsole.exe
+E:\projects\Chess\ChessConsole\obj\Debug\ChessConsole.pdb
