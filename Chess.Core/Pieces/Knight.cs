@@ -1,8 +1,7 @@
-﻿using Chess.Core.Enums;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using Chess.Core.Enums;
 
-namespace Chess.Core
+namespace Chess.Core.Pieces
 {
     public class Knight : Piece
     {
@@ -18,7 +17,16 @@ namespace Chess.Core
 
         public override IEnumerable<Move> GetPossibleMoves(Board board)
         {
-            throw new NotImplementedException();
+            var moves = new List<Move>();
+
+            var xLeft = Square.X - 2;
+            var xRight = Square.X + 2;
+            var yUp = Square.Y + 2;
+            var yDown = Square.Y + 2;
+
+
+
+            return moves;
         }
 
         public override string ToString()

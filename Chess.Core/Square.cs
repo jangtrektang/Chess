@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Chess.Core
+﻿namespace Chess.Core
 {
     public struct  Square
     {
@@ -21,17 +15,30 @@ namespace Chess.Core
         {
             char[] letters = new char[] { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H' };
 
-            return letters[Y] + X.ToString();
+            return letters[X] + Y.ToString();
         }
 
         public override bool Equals(object obj)
         {
+            if (obj == null)
+                return false;
+
             var square = (Square)obj;
 
-            if (square.X == X && square.Y == Y)
-                return true;
+            return square.X == X && square.Y == Y;
+        }
 
-            return false;
+        public bool Equals(Square other)
+        {
+            return X == other.X && Y == other.Y;
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                return (X * 397) ^ Y;
+            }
         }
     }
 }

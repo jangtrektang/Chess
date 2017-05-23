@@ -1,9 +1,8 @@
-﻿using Chess.Core.Enums;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using Chess.Core.Enums;
 
-namespace Chess.Core
+namespace Chess.Core.Pieces
 {
     public class Pawn : Piece
     {
@@ -28,8 +27,7 @@ namespace Chess.Core
                 : Square.Y - 1;
 
             var piece = board.Pieces
-                .Where(x => x.Square.Y == y && x.Square.X == Square.X)
-                .FirstOrDefault();
+                .FirstOrDefault(x => x.Square.Y == y && x.Square.X == Square.X);
 
             var square = squares[y, Square.X];
 
@@ -39,26 +37,24 @@ namespace Chess.Core
             var pieces = board.Pieces
                .Where(x => x.Square.Y == y && (x.Square.X == Square.X + 1 || x.Square.X == Square.X - 1));
 
-            foreach(var tempPiece in pieces)
-            {
-                moves.Add(new Move(Square, tempPiece.Square));
-            }
+            moves.AddRange(pieces
+                .Select(tempPiece => new Move(Square, tempPiece.Square)));
 
-            if (!_hasMoved)
-            {
-                y = Color == PieceColor.Black
+            if (_hasMoved)
+                return moves;
+            
+            y = Color == PieceColor.Black
                 ? Square.Y + 2
                 : Square.Y - 2;
 
-                piece = board.Pieces
-                    .Where(x => x.Square.Y == y && x.Square.X == Square.X)
-                    .FirstOrDefault();
+            piece = board.Pieces
+                .FirstOrDefault(x => x.Square.Y == y && x.Square.X == Square.X);
 
-                square = squares[y, Square.X];
+            square = squares[y, Square.X];
 
-                if (piece == null)
-                    moves.Add(new Move(Square, square));
-            }           
+            if (piece == null)
+                moves.Add(new Move(Square, square));
+            
 
             return moves;
         }

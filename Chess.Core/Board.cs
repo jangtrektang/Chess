@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using Chess.Core.Enums;
+using Chess.Core.Pieces;
+
 namespace Chess.Core
 {
     public class Board
@@ -38,27 +40,27 @@ namespace Chess.Core
                 if(square.Y == 0 || square.Y == 7)
                 {
                     if (square.X == 0 || square.X == 7)
-                        Pieces.Add(new Rook(square.Y == 1
+                        Pieces.Add(new Rook(square.Y == 0
                             ? PieceColor.Black
                             : PieceColor.White, square));
 
                     if (square.X == 1 || square.X == 6)
-                        Pieces.Add(new Knight(square.Y == 1
+                        Pieces.Add(new Knight(square.Y == 0
                             ? PieceColor.Black
                             : PieceColor.White, square));
 
                     if (square.X == 2 || square.X == 5)
-                        Pieces.Add(new Bishop(square.Y == 1
+                        Pieces.Add(new Bishop(square.Y == 0
                             ? PieceColor.Black
                             : PieceColor.White, square));
 
                     if (square.X == 3)
-                        Pieces.Add(new Queen(square.Y == 1
+                        Pieces.Add(new Queen(square.Y == 0
                             ? PieceColor.Black
                             : PieceColor.White, square));
 
                     if (square.X == 4)
-                        Pieces.Add(new King(square.Y == 1
+                        Pieces.Add(new King(square.Y == 0
                             ? PieceColor.Black
                             : PieceColor.White, square));
                 }

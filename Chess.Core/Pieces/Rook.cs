@@ -1,9 +1,8 @@
-﻿using Chess.Core.Enums;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using Chess.Core.Enums;
 
-namespace Chess.Core
+namespace Chess.Core.Pieces
 {
     public class Rook : Piece
     {
@@ -28,17 +27,16 @@ namespace Chess.Core
                     continue;
 
                 var piece = board.Pieces
-                    .Where(p => p.Square.X == Square.X && p.Square.Y == y)
-                    .FirstOrDefault();
+                    .FirstOrDefault(p => p.Square.X == Square.X && p.Square.Y == y);
 
                 if (piece == null)
                     moves.Add(new Move(Square, squares[y, Square.X]));
 
-                if(piece != null && piece.Color != Color)
-                {
-                    moves.Add(new Move(Square, squares[y, Square.X], piece));
+                if (piece == null || piece.Color == Color)
                     break;
-                }
+
+                moves.Add(new Move(Square, squares[y, Square.X], piece));
+                break;
             }
 
             for(var x = 0; x < 8; x++)
@@ -47,17 +45,16 @@ namespace Chess.Core
                     continue;
 
                 var piece = board.Pieces
-                    .Where(p => p.Square.X == x && p.Square.Y == Square.Y)
-                    .FirstOrDefault();
+                    .FirstOrDefault(p => p.Square.X == x && p.Square.Y == Square.Y);
 
                 if (piece == null)
                     moves.Add(new Move(Square, squares[Square.Y, x]));
 
-                if(piece != null && piece.Color != Color)
-                {
-                    moves.Add(new Move(Square, squares[Square.Y, x], piece));
-                    break;
-                }
+                if (piece == null || piece.Color == Color)
+                    continue;
+
+                moves.Add(new Move(Square, squares[Square.Y, x], piece));
+                break;
             }
 
             return moves;

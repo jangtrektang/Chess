@@ -3,3 +3,8 @@ E:\projects\Chess\Chess.Core\bin\Debug\Chess.Core.pdb
 E:\projects\Chess\Chess.Core\obj\Debug\Chess.Core.csprojResolveAssemblyReference.cache
 E:\projects\Chess\Chess.Core\obj\Debug\Chess.Core.dll
 E:\projects\Chess\Chess.Core\obj\Debug\Chess.Core.pdb
+C:\personal\Chess\Chess\Chess.Core\bin\Debug\Chess.Core.dll
+C:\personal\Chess\Chess\Chess.Core\bin\Debug\Chess.Core.pdb
+C:\personal\Chess\Chess\Chess.Core\obj\Debug\Chess.Core.csprojResolveAssemblyReference.cache
+C:\personal\Chess\Chess\Chess.Core\obj\Debug\Chess.Core.dll
+C:\personal\Chess\Chess\Chess.Core\obj\Debug\Chess.Core.pdb

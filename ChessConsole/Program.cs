@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Chess.Core;
 using Chess.Core.Players;
 using Chess.Core.Enums;
+using Chess.Core.Pieces;
 
 namespace ChessConsole
 {
@@ -25,7 +23,10 @@ namespace ChessConsole
 
             PrintBoard(game.Board);
 
-            GetAvailableMoves(game.Board.Pieces[9], game.Board);
+            Console.WriteLine("Piece: {0}", game.Board.Pieces[7]);
+            Console.WriteLine("Color: {0}", game.Board.Pieces[7].Color);
+            Console.WriteLine("Position: {0}", game.Board.Pieces[7].Square);
+            GetAvailableMoves(game.Board.Pieces[7], game.Board);
 
             Console.Read();
         }
@@ -39,10 +40,9 @@ namespace ChessConsole
                 for(var x = 0; x < 8; x++)
                 {
                     var piece = board.Pieces
-                        .Where(p => p.Square.X == x && p.Square.Y == y)
-                        .FirstOrDefault();
+                        .FirstOrDefault(p => p.Square.X == x && p.Square.Y == y);
 
-                    Console.Write("[{0}]", piece != null ? piece.ToString().Substring(0, 1) : " ");
+                    Console.Write("[{0}]", piece?.ToString().Substring(0, 1) ?? " ");
                 }
 
                 Console.WriteLine();
