@@ -1,6 +1,6 @@
 ﻿namespace Chess.Core
 {
-    public struct  Square
+    public class Square
     {
         public int X { get; }
         public int Y { get; }

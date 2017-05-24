@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Chess.Core.Enums;
 using Chess.Core.Pieces;
 
@@ -70,6 +71,20 @@ namespace Chess.Core
         public Square[,] GetSquares()
         {
             return _squares;
+        }
+
+        public Square GetSquare(int x, int y)
+        {
+            if ((x >= 0 & x < 8) && (y >= 0 && y < 8))
+                return _squares[y, x];
+
+            return null;
+        }
+
+        public Piece GetPieceBySquare(Square square)
+        {
+            return Pieces
+                .FirstOrDefault(p => p.Square.Equals(square));
         }
     }
 }
