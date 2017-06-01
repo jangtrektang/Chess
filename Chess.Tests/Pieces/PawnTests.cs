@@ -1,9 +1,10 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using Chess.Core;
 using Chess.Tests.Comparers;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Chess.Core.Pieces.Tests
+namespace Chess.Tests.Pieces
 {
     [TestClass()]
     public class PawnTests
