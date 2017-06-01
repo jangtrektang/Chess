@@ -35,7 +35,7 @@ namespace Chess.Tests.Pieces
             var possibleMoves = new List<Move>()
             {
                 new Move(piece.Square, board.GetSquare(0, 1)),
-                new Move(piece.Square, board.GetSquare(0, 3))
+                new Move(piece.Square, board.GetSquare(0, 2))
             };
             
             CollectionAssert.AreEqual(possibleMoves, moves, new MoveComparer());

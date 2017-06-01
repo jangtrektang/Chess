@@ -30,9 +30,12 @@ namespace Chess.Core.Pieces
                     .FirstOrDefault(p => p.Square.X == Square.X && p.Square.Y == y);
 
                 if (piece == null)
+                {
                     moves.Add(new Move(Square, squares[y, Square.X]));
+                    continue;
+                }
 
-                if (piece == null || piece.Color == Color)
+                if (piece.Color == Color)
                     break;
 
                 moves.Add(new Move(Square, squares[y, Square.X], piece));
