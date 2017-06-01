@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Chess.Core.Enums;
 using Chess.Core.Pieces;
@@ -66,6 +67,20 @@ namespace Chess.Core
                             : PieceColor.White, square));
                 }
             }
+        }
+
+        public void MovePiece(Square startSquare, Square endSquare, PieceColor color)
+        {
+            var piece = Pieces
+                .FirstOrDefault(p => p.Square == startSquare);
+
+            if(piece == null)
+                throw new Exception("No piece selected.");
+
+            if(piece.Color != color)
+                throw new Exception("You can't move an opponents piece.");
+
+            piece.Move(endSquare);
         }
 
         public Square[,] GetSquares()

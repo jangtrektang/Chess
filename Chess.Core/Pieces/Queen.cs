@@ -21,7 +21,7 @@ namespace Chess.Core.Pieces
         {
             var moves = new List<Move>();
             var squares = board.GetSquares();
-            var y = 0;
+            var yDiagonal = 0;
 
             for (var y = 0; y < 8; y++)
             {
@@ -59,28 +59,29 @@ namespace Chess.Core.Pieces
                 break;
             }
 
+
             for (var x = 0; x < 8; x++)
             {
-                if (Square.X == x && Square.Y == y)
+                if (Square.X == x && Square.Y == yDiagonal)
                     continue;
 
                 var differenceX = Math.Abs(Square.X - x);
-                var differenceY = Math.Abs(Square.Y - y);
+                var differenceY = Math.Abs(Square.Y - yDiagonal);
 
                 if (differenceX != differenceY)
                     continue;
 
                 var piece = board.Pieces
-                    .FirstOrDefault(p => p.Square.X == x && p.Square.Y == y);
+                    .FirstOrDefault(p => p.Square.X == x && p.Square.Y == yDiagonal);
 
                 if (piece == null)
-                    moves.Add(new Move(Square, squares[y, x]));
+                    moves.Add(new Move(Square, squares[yDiagonal, x]));
                 else
                 {
                     if (piece.Color == Color)
                         break;
 
-                    moves.Add(new Move(Square, squares[y, x], piece));
+                    moves.Add(new Move(Square, squares[yDiagonal, x], piece));
                     break;
                 }
             }

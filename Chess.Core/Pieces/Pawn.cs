@@ -62,7 +62,6 @@ namespace Chess.Core.Pieces
         public override void Move(Square square)
         {
             base.Move(square);
-
             _hasMoved = true;
         }
 

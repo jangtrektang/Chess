@@ -37,6 +37,9 @@ namespace Chess.Core.Pieces
 
             foreach (var square in squares)
             {
+                if (square == null)
+                    continue;
+
                 var piece = board.Pieces
                     .FirstOrDefault(p => p.Square.Equals(square));
 

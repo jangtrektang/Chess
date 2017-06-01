@@ -1,0 +1,35 @@
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
+using System.Linq;
+using Chess.Tests.Comparers;
+
+namespace Chess.Core.Pieces.Tests
+{
+    [TestClass()]
+    public class PawnTests
+    {
+        [TestMethod()]
+        public void GetPossibleMovesPawnTest()
+        {
+            // Get board
+            var board = new Board();
+            board.SetupPieces();
+
+            // Get piece
+            var piece = board.Pieces
+                .FirstOrDefault(p => p.Square.X == 0 && p.Square.Y == 1);
+
+            if(piece == null)
+                Assert.Fail();
+
+            var moves = piece.GetPossibleMoves(board).ToList();
+            var possibleMoves = new List<Move>()
+            {
+                new Move(piece.Square, board.GetSquare(0, 2)),
+                new Move(piece.Square, board.GetSquare(0, 3))
+            };
+
+            CollectionAssert.AreEqual(possibleMoves, moves, new MoveComparer());
+        }
+    }
+}

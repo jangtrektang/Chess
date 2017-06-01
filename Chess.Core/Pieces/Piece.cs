@@ -8,12 +8,12 @@ namespace Chess.Core.Pieces
         public PieceColor Color { get; }
         public Square Square { get; set; }
 
-        public Piece(PieceColor color)
+        protected Piece(PieceColor color)
         {
             Color = color;
         }
 
-        public Piece(PieceColor color, Square square) 
+        protected Piece(PieceColor color, Square square) 
             : this(color)
         {
             Square = square;
